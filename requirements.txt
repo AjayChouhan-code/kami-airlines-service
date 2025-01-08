@@ -1,0 +1,25 @@
+--constraint constraints.txt
+
+# Versions are managed by constraints.txt
+
+# Django related
+Django
+django-mysql
+django-service-objects
+djangorestframework
+django-safedelete
+
+# Testing related
+radon
+coverage
+factory-boy
+
+# Code formatting
+black
+flake8
+isort
+pycodestyle~=2.11.0
+
+# MISC
+requests
+mysqlclient
