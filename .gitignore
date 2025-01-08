@@ -1,0 +1,38 @@
+# Byte-compiled Python files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Environment variables file
+.env
+
+# Virtual environment
+venv/
+env/
+*.venv
+*.env
+
+# Local IDE files
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# Django migration files (optional, usually should be tracked)
+*.sqlite3
+
+# Coverage reports
+htmlcov/
+.coverage
+*.cover
+.cache
+
+# Media and static files
+/media/
+*/staticfiles/
+
+# Temporary files
+.DS_Store
+*.swp
