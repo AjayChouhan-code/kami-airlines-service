@@ -1,0 +1,5 @@
+{% if method == "GET" %}
+curl -X {{ method }} {{ request_url }} -d Query Parameters
+{% else %}
+curl -X {{ method }} {{ request_url }} -d Payload
+{% endif %}
