@@ -16,8 +16,18 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+
+from common.custom_auto_schema import schema_view
+
+PREFIX_URL = "kamiAirlines/"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path(PREFIX_URL, include("kami_airlines.urls")),
+    path(
+        f"{PREFIX_URL}endpointDocumentation/",
+        schema_view.with_ui("redoc", cache_timeout=0),
+        name="schema-redoc",
+    ),
 ]
