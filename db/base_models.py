@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+from django.db.models import Max
 
 from django_mysql.models import Bit1BooleanField
 
@@ -19,11 +20,14 @@ class BaseModel(models.Model):
 
     @classmethod
     def get_new_uuid(cls):
-        return uuid.uuid4().int >> 75
+        last_uuid = cls.objects.aggregate(Max("uuid")).get("uuid__max")
+        last_uuid = last_uuid or 0
+        new_uuid = last_uuid + 1
+        return new_uuid
 
     def save(self, **kwargs):
         if not self.uuid:
-            self.public_id = self.get_new_uuid()
+            self.uuid = self.get_new_uuid()
 
         super(BaseModel, self).save(**kwargs)
 
