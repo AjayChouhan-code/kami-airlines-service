@@ -23,3 +23,6 @@ pycodestyle~=2.11.0
 # MISC
 requests
 mysqlclient
+
+# Docs related
+drf-yasg
